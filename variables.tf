@@ -74,6 +74,6 @@ variable "placeholder" {
   description = "Image-as-a-service URL. Some other fun ones to try are fillmurray.com, placecage.com, placebeard.it, loremflickr.com, baconmockup.com, placeimg.com, placebear.com, placeskull.com, stevensegallery.com, placedog.net"
 }
 
-# data "azurerm_resource_group" "network" {
-#   name = var.resource_group_name
-# }
+data "azurerm_resource_group" "network" {
+  name = azurerm_resource_group.myresourcegroup
+}
