@@ -24,7 +24,7 @@ resource "azurerm_subnet" "subnet" {
   resource_group_name  = azurerm_resource_group.myresourcegroup.name
   address_prefix       = var.subnet_prefix
 }
-/*
+
 resource "azurerm_network_security_group" "catapp-sg" {
   name                = "${var.prefix}-sg"
   location            = var.location
@@ -66,7 +66,7 @@ resource "azurerm_network_security_group" "catapp-sg" {
     destination_address_prefix = "*"
   }
 }
-*/
+
 resource "azurerm_network_interface" "catapp-nic" {
   name                      = "${var.prefix}-catapp-nic"
   location                  = var.location
@@ -81,13 +81,13 @@ resource "azurerm_network_interface" "catapp-nic" {
   }
 }
 
-# resource "azurerm_public_ip" "catapp-pip" {
-#   name                = "${var.prefix}-ip"
-#   location            = var.location
-#   resource_group_name = azurerm_resource_group.myresourcegroup.name
-#   allocation_method   = "Dynamic"
-#   domain_name_label   = "${var.prefix}-meow"
-# }
+resource "azurerm_public_ip" "catapp-pip" {
+  name                = "${var.prefix}-ip"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.myresourcegroup.name
+  allocation_method   = "Dynamic"
+  domain_name_label   = "${var.prefix}-meow"
+}
 
 resource "azurerm_virtual_machine" "catapp" {
   name                = "${var.prefix}-meow"
