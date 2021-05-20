@@ -123,7 +123,8 @@ resource "azurerm_virtual_machine" "catapp" {
   }
 
       tags = {
-      environment                   = "test"
+      Department                   = "HR"
+      Billable                     = "yes"
     }
 }
 
